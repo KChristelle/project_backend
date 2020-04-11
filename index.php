@@ -14,9 +14,9 @@
                   action="test.php">
                 <div class="form-group">
                     <label>
-                        Full name
+                        Admin name
                     </label>
-                    <input type="text" name="full_Name" class="form-control" required>
+                    <input type="text" name="admin_full_name" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label>

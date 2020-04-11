@@ -2,7 +2,7 @@
     $admin_full_name = $_POST['full_name'];
     $username = $_POST['username'];
     $email =  $_POST['email'];
-    $password = $POST['password'];
+    $password = $_POST['password'];
 
     // DB Connection
     $conn = new mysqli('localhost', 'root', '', 'registration');
@@ -12,7 +12,7 @@
     }else{
         $stmt = $conn->prepare("insert into admin(admin_full_name, username, email, password)
         values(?, ?, ?, ?)");
-        $stmt->bind_param($admin_full_name, $username, $email, $password);
+        $stmt->bind_param('sssi',$admin_full_name, $username, $email, $password);
         $stmt->execute();
         if ($stmt->num_rows == 1) {
             echo "Registration was successful";
