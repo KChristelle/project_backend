@@ -14,7 +14,11 @@
         values(?, ?, ?, ?)");
         $stmt->bind_param($admin_full_name, $username, $email, $password);
         $stmt->execute();
-        echo "Registration was successful";
+        if ($stmt->num_rows == 1) {
+            echo "Registration was successful";
+         } else {
+             echo 'Error: ' . $stmt->error;
+         }
         $stmt->close();
         $conn->close();
     }
